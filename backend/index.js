@@ -8,6 +8,7 @@ import libowner from './routes/libowner.js';
 import student from './routes/student.js';
 import editorworks from './routes/editorworks.js';
 import publicroute from './routes/publicroute.js';
+import path from 'path';
 
 const app = express();
 
@@ -17,9 +18,13 @@ app.use(express.json());
 
 dotenv.config();
 
-app.get('/', (req, res)=>{
-    return res.status(234).send("Welcome to myLibrary backend services...");
-})
+const _dirname = path.dirname("");
+const buildpath = path.join(_dirname, "../build");
+app.use(express.static(buildpath));
+
+// app.get('/', (req, res)=>{
+//     return res.status(234).send("Welcome to myLibrary backend services...");
+// })
 
 // Available Routes
 app.use('/user/userauth', userauth);
