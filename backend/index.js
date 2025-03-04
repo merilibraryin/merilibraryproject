@@ -22,9 +22,9 @@ const _dirname = path.dirname("");
 const buildpath = path.join(_dirname, "../build");
 app.use(express.static(buildpath));
 
-// app.get('/', (req, res)=>{
-//     return res.status(234).send("Welcome to myLibrary backend services...");
-// })
+app.get('/testing', (req, res)=>{
+    return res.status(234).send("This is for the testing purpose.");
+})
 
 // Available Routes
 app.use('/user/userauth', userauth);
